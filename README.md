@@ -1,4 +1,4 @@
-# FlexPave [a relative link](media/icons/FlexPave.png)
+# FlexPave ![flexpave](https://github.com/FreireAlexander/FlexPave/blob/master/media/icons/FlexPave.png)
 
 Version = 0.0.0-dev
 
