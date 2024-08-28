@@ -24,10 +24,8 @@ class Flexible_Pavement:
         self.Delta_PSI = Delta_PSI
         self.Mr = convert.MPAtoPSI(Mr)
 
-    def W18(self):
-        axes = math.pow(10,(self.Zr*self.S0+9.36*math.log10(self.SN+1) \
+    def getAxes(self):
+        return math.pow(10,(self.Zr*self.S0+9.36*math.log10(self.SN+1) \
             -0.20+((math.log10(((self.Delta_PSI)/(4.2-1.5))))/(0.40+(1094/math.pow(self.SN+1,5.19)))) \
             +2.32*math.log10(self.Mr)-8.07))
-
-        return axes
 

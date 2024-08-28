@@ -25,7 +25,7 @@ def setResult(confiabilidad, desviacion, structural_number, delta_psi, mr):
         )
 
         # Muestra el resultado en una window emergente
-        resultado_label.config(text=f"Resultado: {resultado.W18()}")
+        resultado_label.config(text=f"Resultado: {resultado.getAxes()}")
     except ValueError:
         resultado_label.config(text="¡Ingresa valores numéricos válidos!")
 
