@@ -1,8 +1,8 @@
 import math
 import scipy.stats as st
-from UNITS import convert
+from parameters.units import units
 
-class Flexible_Pavement:
+class flexiblePavement:
 
     def __init__(self, 
                  Reliability: float = 0.95, 
@@ -22,7 +22,7 @@ class Flexible_Pavement:
         self.S0 = Standard_Deviation
         self.SN = Structural_Number*25/64
         self.Delta_PSI = Delta_PSI
-        self.Mr = convert.MPAtoPSI(Mr)
+        self.Mr = units.MPAtoPSI(Mr)
 
     def getAxes(self):
         return math.pow(10,(self.Zr*self.S0+9.36*math.log10(self.SN+1) \

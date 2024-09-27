@@ -1,4 +1,4 @@
-from uuid import uuid4, uuid1
+from uuid import uuid4
 
 class Material():
     """
@@ -9,57 +9,55 @@ class Material():
     - elasticModule     float
 
     protected:
-    - UUID
+    - id
     - classification
     """
-    
+    __slots__ = ('_id', 'name', '_classification', 'elasticModule')
+
     def __init__(self,
                  name: str, 
-                 elasticModule: float, 
+                 elasticModule: float = 0, 
                  classification: str = 'null'
                  ):
+        self._id = uuid4()
         self.name = name
-        self.__classification = classification
-        self.ElasticModule = elasticModule
-        self.__UUID = uuid4()
+        self._classification = classification
+        self.elasticModule = elasticModule
+        
+
 
     def __str__(self) -> str:
         json = {
-            'UUID': self.UUID,
+            'id': self.id,
             'name': self.name,
             'classification': self.classification,
-            'elastic Module': self.ElasticModule
-
+            'elastic module': self.elasticModule
         }
         return str(json)
 
     @property
     def classification(self):
-        return self.__classification
+        return self._classification
+
 
     def setClassification(self, classification: str):
-        self.__classification = classification
+        self._classification = classification
 
 
     @property
-    def UUID(self):
-        return self.__UUID
+    def id(self):
+        return self._id
     
-    def setUUID(self, value):
-        self.__UUID = value
+
+    def setId(self, value):
+        self._id = value
 
 
 
 def main():
-    
-    asphalt = Material("asphalt",125000)
-    print(f"Material {asphalt.UUID} and Elastic Module {asphalt.ElasticModule}")
-    asphalt.__UUID = 0
-    print(f"new UUID {asphalt.UUID}")
-    asphalt.setUUID(15000)
-    print(f"new UUID {asphalt.UUID}")
-    print(f"asphalt classification is {asphalt.classification}")
-    print(f"Asphalt material {asphalt}")
+    material = Material('New Material')
+    print(f"New Material created {material}")
+
 
 if __name__ == "__main__":
     main()
